@@ -26,7 +26,7 @@ if [ -f "$FILENAME" ]; then
     #echo "$(tail -n +2 hello.py)" | gh gist create -f hello.py -d "$(head -1 hello.py)"
 
     # take first line as comment and strip the rest as content and upload to github gist
-    echo "$(tail -n +2 $FILENAME)" | gh gist create -f "$FILENAME" -d "$(head -1 $FILENAME)"
+    echo "$(tail -n +2 $FILENAME)" | gh gist create --public -f "$FILENAME" -d "$(head -1 $FILENAME)"
 
     # move file to backup folder
     mv "$FILENAME" "../backup/$FILENAME"
