@@ -22,8 +22,6 @@ FILENAME=$( find *.gist -type f -print0 | shuf -z -n 1 )
 
 # if file exists
 if [ -f "$FILENAME" ]; then
-    #echo $FILENAME;
-    #echo "$(tail -n +2 hello.py)" | gh gist create -f hello.py -d "$(head -1 hello.py)"
 
     # take first line as comment and strip the rest as content and upload to github gist
     echo "$(tail -n +2 $FILENAME)" | gh gist create --public -f "$FILENAME" -d "$(head -1 $FILENAME)"
